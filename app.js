@@ -22,8 +22,8 @@ app.use(cookieParser());
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-app.get("/hikes", hike.index);
-app.post("/add_hike", hike.add_hike);
+app.get("/hikes", hikeRouter.index);
+app.post("/add_hike", hikeRouter.add_hike);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
