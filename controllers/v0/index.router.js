@@ -8,20 +8,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
-const index_router_1 = require("./controllers/v0/index.router");
-const app = (0, express_1.default)();
-const port = process.env.PORT || 8080; // default port to listen
-app.use("/api/v0/", index_router_1.IndexRouter);
-// Root URI call
-app.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    res.send("/api/v0/");
+exports.IndexRouter = void 0;
+const express_1 = require("express");
+const user_router_1 = require("./users/routes/user.router");
+const router = (0, express_1.Router)();
+router.use("/users", user_router_1.UserRouter);
+router.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    res.send(`V0`);
 }));
-app.listen(port, () => {
-    console.log(`server running http://localhost:${port}`);
-    console.log(`press CTRL+C to stop server`);
-});
+exports.IndexRouter = router;

@@ -8,20 +8,18 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
-const index_router_1 = require("./controllers/v0/index.router");
-const app = (0, express_1.default)();
-const port = process.env.PORT || 8080; // default port to listen
-app.use("/api/v0/", index_router_1.IndexRouter);
-// Root URI call
-app.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    res.send("/api/v0/");
+exports.UserRouter = void 0;
+const express_1 = require("express");
+const User_1 = require("../models/User");
+const auth_router_1 = require("./auth.router");
+const router = (0, express_1.Router)();
+router.use('/auth', auth_router_1.AuthRouter);
+router.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 }));
-app.listen(port, () => {
-    console.log(`server running http://localhost:${port}`);
-    console.log(`press CTRL+C to stop server`);
-});
+router.get('/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    let { id } = req.params;
+    const item = yield User_1.User.findByPk(id);
+    res.send(item);
+}));
+exports.UserRouter = router;
