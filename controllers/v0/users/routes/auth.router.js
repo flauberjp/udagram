@@ -40,12 +40,15 @@ const EmailValidator = __importStar(require("email-validator"));
 const router = (0, express_1.Router)();
 function generatePassword(plainTextPassword) {
     return __awaiter(this, void 0, void 0, function* () {
-        return bcrypt.hash(plainTextPassword, 10);
+        const rounds = 10;
+        const salt = yield bcrypt.genSalt(rounds);
+        const hash = yield bcrypt.hash(plainTextPassword, salt);
+        return hash;
     });
 }
 function comparePasswords(plainTextPassword, hash) {
     return __awaiter(this, void 0, void 0, function* () {
-        return hash === (yield generatePassword(plainTextPassword));
+        return yield bcrypt.compare(plainTextPassword, hash);
     });
 }
 function generateJWT(user) {
