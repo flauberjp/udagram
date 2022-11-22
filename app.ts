@@ -9,7 +9,7 @@ app.use("/api/v0/", IndexRouter);
 
 // Root URI call
 app.get("/", async (req, res) => {
-  res.send("/api/v0/");
+  res.send("path: /");
 });
 
 app.listen(port, () => {

@@ -15,6 +15,6 @@ const user_router_1 = require("./users/routes/user.router");
 const router = (0, express_1.Router)();
 router.use("/users", user_router_1.UserRouter);
 router.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    res.send(`accessing /users`);
+    res.send("path: /api/v0/");
 }));
 exports.IndexRouter = router;

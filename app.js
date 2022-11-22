@@ -19,7 +19,7 @@ const port = process.env.PORT || 8080; // default port to listen
 app.use("/api/v0/", index_router_1.IndexRouter);
 // Root URI call
 app.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    res.send("/api/v0/");
+    res.send("path: /");
 }));
 app.listen(port, () => {
     console.log(`server running http://localhost:${port}`);
