@@ -35,18 +35,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthRouter = exports.requireAuth = void 0;
 const express_1 = require("express");
 const User_1 = require("../models/User");
+const bcrypt = __importStar(require("bcrypt"));
 const EmailValidator = __importStar(require("email-validator"));
 const router = (0, express_1.Router)();
 function generatePassword(plainTextPassword) {
     return __awaiter(this, void 0, void 0, function* () {
-        //@TODO Use Bcrypt to Generated Salted Hashed Passwords
-        return "NotYetImplemented";
+        return bcrypt.hash(plainTextPassword, 10);
     });
 }
 function comparePasswords(plainTextPassword, hash) {
     return __awaiter(this, void 0, void 0, function* () {
-        //@TODO Use Bcrypt to Compare your password to your Salted Hashed Password
-        return true;
+        return hash === (yield generatePassword(plainTextPassword));
     });
 }
 function generateJWT(user) {
