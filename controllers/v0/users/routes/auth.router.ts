@@ -12,14 +12,17 @@ import { OperationalError } from "bluebird";
 const router: Router = Router();
 
 async function generatePassword(plainTextPassword: string): Promise<string> {
-  return bcrypt.hash(plainTextPassword, 10);
+  const rounds = 10;
+  const salt = await bcrypt.genSalt(rounds);
+  const hash = await bcrypt.hash(plainTextPassword, salt);
+  return hash;
 }
 
 async function comparePasswords(
   plainTextPassword: string,
   hash: string
 ): Promise<boolean> {
-  return hash === (await generatePassword(plainTextPassword));
+  return await bcrypt.compare(plainTextPassword, hash);
 }
 
 function generateJWT(user: User): string {
