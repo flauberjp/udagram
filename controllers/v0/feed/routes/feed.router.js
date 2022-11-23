@@ -95,6 +95,7 @@ router.get("/signed-url/:fileName", auth_router_1.requireAuth, (req, res) => __a
 // NOTE the file name is they key name in the s3 bucket.
 // body : {caption: string, fileName: string};
 router.post("/", auth_router_1.requireAuth, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log(JSON.stringify(req));
     const caption = req.body.caption;
     const fileName = req.body.url;
     // check Caption is valid
