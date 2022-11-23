@@ -107,10 +107,10 @@ router.post("/", auth_router_1.requireAuth, (req, res) => __awaiter(void 0, void
     if (!fileName) {
         return res.status(400).send({ message: "File url is required" });
     }
-    const item = yield new FeedItem_1.FeedItem({
-        caption: caption,
-        url: fileName,
-    });
+    // const item = await new FeedItem({
+    //   caption: caption,
+    //   url: fileName,
+    // });
     // const saved_item = await item.save();
     // saved_item.url = AWS.getGetSignedUrl(saved_item.url);
     //res.status(201).send(saved_item);
