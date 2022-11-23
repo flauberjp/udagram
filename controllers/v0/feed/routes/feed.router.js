@@ -114,6 +114,6 @@ router.post("/", auth_router_1.requireAuth, (req, res) => __awaiter(void 0, void
     // const saved_item = await item.save();
     // saved_item.url = AWS.getGetSignedUrl(saved_item.url);
     //res.status(201).send(saved_item);
-    res.status(201).send("fake post");
+    res.status(201).send({ message: "fake post" });
 }));
 exports.FeedRouter = router;
