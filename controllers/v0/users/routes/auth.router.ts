@@ -50,7 +50,9 @@ export function requireAuth(req: Request, res: Response, next: NextFunction) {
           "Failed to authenticate. \ntoken: " +
           token +
           "\nconfig.jwt.secret: " +
-          config.jwt.secret,
+          config.jwt.secret +
+          "\nerr: " +
+          err,
       });
     }
     return next();

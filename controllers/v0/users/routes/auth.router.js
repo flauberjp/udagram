@@ -72,7 +72,9 @@ function requireAuth(req, res, next) {
                 message: "Failed to authenticate. \ntoken: " +
                     token +
                     "\nconfig.jwt.secret: " +
-                    config_1.config.jwt.secret,
+                    config_1.config.jwt.secret +
+                    "\nerr: " +
+                    err,
             });
         }
         return next();
