@@ -70,7 +70,7 @@ router.get(
 // NOTE the file name is they key name in the s3 bucket.
 // body : {caption: string, fileName: string};
 router.post("/", requireAuth, async (req: Request, res: Response) => {
-  console.log(JSON.stringify(req));
+  console.log(req.body);
   const caption = req.body.caption;
   const fileName = req.body.url;
 
