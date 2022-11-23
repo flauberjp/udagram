@@ -44,9 +44,14 @@ export function requireAuth(req: Request, res: Response, next: NextFunction) {
 
   return jwt.verify(token, config.jwt.secret, (err, decoded) => {
     if (err) {
-      return res
-        .status(500)
-        .send({ auth: false, message: "Failed to authenticate." + token });
+      return res.status(500).send({
+        auth: false,
+        message:
+          "Failed to authenticate. \ntoken: " +
+          token +
+          "\nconfig.jwt.secret: " +
+          config.jwt.secret,
+      });
     }
     return next();
   });
