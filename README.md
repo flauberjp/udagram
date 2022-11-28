@@ -47,4 +47,6 @@ Developer mode runs off the TypeScript source. Any saves will reset the server a
 
 ## Troubleshooting
 
-Sequelize migration does not work, no logs are generated. How to resolve? Update pg version using npm install --save pg@latest. Reference: https://stackoverflow.com/a/65874373/6771132
+1. Sequelize migration does not work, no logs are generated. How to resolve? Update pg version using npm install --save pg@latest. Reference: https://stackoverflow.com/a/65874373/6771132
+
+1. How to make server.app from wwww be executed by default by EB? Use Proffile. Reference: https://stackoverflow.com/a/65773148/6771132
