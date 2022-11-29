@@ -9,7 +9,7 @@ export const config = {
   aws: {
     aws_region: "us-east-1",
     aws_profile: "default",
-    aws_media_bucket: "udagram",
+    aws_media_bucket: "udagram-flauberjp-dev",
   },
   jwt: {
     secret: " ",
