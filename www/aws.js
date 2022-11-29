@@ -24,11 +24,12 @@ exports.s3 = new AWS.S3({
  */
 function getGetSignedUrl(key) {
     const signedUrlExpireSeconds = 60 * 5;
-    const url = exports.s3.getSignedUrl("getObject", {
+    const param = {
         Bucket: c.aws_media_bucket,
         Key: key,
         Expires: signedUrlExpireSeconds,
-    });
+    };
+    const url = exports.s3.getSignedUrl("getObject", param);
     return url;
 }
 exports.getGetSignedUrl = getGetSignedUrl;
@@ -40,11 +41,12 @@ exports.getGetSignedUrl = getGetSignedUrl;
  */
 function getPutSignedUrl(key) {
     const signedUrlExpireSeconds = 60 * 5;
-    const url = exports.s3.getSignedUrl("putObject", {
+    const param = {
         Bucket: c.aws_media_bucket,
         Key: key,
         Expires: signedUrlExpireSeconds,
-    });
+    };
+    const url = exports.s3.getSignedUrl("putObject", param);
     return url;
 }
 exports.getPutSignedUrl = getPutSignedUrl;

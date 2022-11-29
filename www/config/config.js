@@ -3,26 +3,19 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.config = void 0;
 exports.config = {
     postgres: {
-        username: "postgres",
-        password: "postgres",
-        database: "database-1",
-        host: "database-1.ccqi1xutvahh.us-east-1.rds.amazonaws.com",
+        username: process.env.POSTGRES_USERNAME,
+        password: process.env.POSTGRES_PASSWORD,
+        database: process.env.POSTGRES_DATABASE,
+        host: process.env.POSTGRES_HOST,
         dialect: "postgres",
     },
     aws: {
-        aws_region: "us-east-1",
-        aws_profile: "default",
-        aws_media_bucket: "udagram",
+        aws_region: process.env.AWS_REGION,
+        aws_profile: process.env.AWS_PROFILE,
+        aws_media_bucket: process.env.AWS_MEDIA_BUCKET,
     },
     jwt: {
-        secret: " ",
-    },
-    prod: {
-        username: "",
-        password: "",
-        database: "",
-        host: "",
-        dialect: "postgres",
+        secret: "helloworld",
     },
 };
 //# sourceMappingURL=config.js.map
