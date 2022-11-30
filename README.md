@@ -45,8 +45,40 @@ npm run dev
 
 Developer mode runs off the TypeScript source. Any saves will reset the server and run the latest version of the codebase.
 
+## Hints
+
+- Remember to update launch.json with environment variables, so you can run and debug it locally. Example below. More info at [1]
+
+```
+    {
+      "version": "0.2.0",
+      "configurations": [
+        {
+          "type": "node",
+          "request": "launch",
+          "name": "Launch Program",
+          "program": "${workspaceFolder}/src/server.ts",
+          "outFiles": ["${workspaceFolder}/www/**/*.js"],
+          "env": {
+            "POSTGRES_USERNAME": "<YOUR_VALUE>",
+            "POSTGRES_PASSWORD": "<YOUR_VALUE>",
+            "POSTGRES_DATABASE": "<YOUR_VALUE>",
+            "POSTGRES_HOST": "<YOUR_VALUE>",
+            "AWS_REGION": "<YOUR_VALUE>",
+            "WS_PROFILE": "<YOUR_VALUE>",
+            "AWS_MEDIA_BUCKET": "<YOUR_VALUE>"
+          }
+        }
+      ]
+    }
+```
+
 ## Troubleshooting
 
 1. Sequelize migration does not work, no logs are generated. How to resolve? Update pg version using npm install --save pg@latest. Reference: https://stackoverflow.com/a/65874373/6771132
 
 1. How to make server.app from wwww be executed by default by EB? Use Proffile. Reference: https://stackoverflow.com/a/65773148/6771132
+
+## References
+
+1. [How do I add environment variables to launch.json in VSCode](https://stackoverflow.com/a/45426595/6771132)
