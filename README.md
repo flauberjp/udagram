@@ -66,7 +66,8 @@ Developer mode runs off the TypeScript source. Any saves will reset the server a
             "POSTGRES_HOST": "<YOUR_VALUE>",
             "AWS_REGION": "<YOUR_VALUE>",
             "AWS_PROFILE": "<YOUR_VALUE>",
-            "AWS_MEDIA_BUCKET": "<YOUR_VALUE>"
+            "AWS_MEDIA_BUCKET": "<YOUR_VALUE>",
+            "JWT_SECRET": "<YOUR_VALUE>"
           }
         }
       ]
