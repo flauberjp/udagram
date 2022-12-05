@@ -2,6 +2,8 @@ branch-defaults:
   main:
     environment: udagramBackendEnv
     group_suffix: null
+deploy:
+  artifact: ./www/Archive.zip
 global:
   application_name: udagramBackend
   branch: null
