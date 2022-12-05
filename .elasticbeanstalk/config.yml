@@ -1,9 +1,9 @@
 branch-defaults:
   main:
-    environment: Udagrambackend-env
+    environment: udagramBackendEnv
     group_suffix: null
 global:
-  application_name: udagram-backend
+  application_name: udagramBackend
   branch: null
   default_ec2_keyname: null
   default_platform: Node.js 16
