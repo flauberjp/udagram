@@ -39,7 +39,7 @@ const auth_router_1 = require("../../users/routes/auth.router");
 const AWS = __importStar(require("../../../../aws"));
 const router = (0, express_1.Router)();
 // Get all feed items
-router.get("/", auth_router_1.requireAuth, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const items = yield FeedItem_1.FeedItem.findAndCountAll({ order: [["id", "DESC"]] });
     items.rows.map((item) => {
         if (item.url) {
