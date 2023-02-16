@@ -21,11 +21,13 @@ const model_index_1 = require("./controllers/v0/model.index");
     yield sequelize_1.sequelize.addModels(model_index_1.V0MODELS);
     yield sequelize_1.sequelize.sync();
     const app = (0, express_1.default)();
-    const port = process.env.PORT || 8080; // default port to listen
+    const port = process.env.PORT || 8081; // default port to listen
     app.use(body_parser_1.default.json());
     //CORS Should be restricted
     app.use(function (req, res, next) {
-        res.header("Access-Control-Allow-Origin", "http://localhost:8100");
+        // res.header("Access-Control-Allow-Origin", "http://localhost");
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, PATCH, DELETE");
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
         next();
     });
